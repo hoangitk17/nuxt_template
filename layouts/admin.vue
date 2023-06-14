@@ -1,9 +1,7 @@
 <template>
   <div>
     <h1>
-
-    Admin layout
-
+      Admin layout
     </h1>
     <slot />
   </div>
