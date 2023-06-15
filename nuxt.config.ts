@@ -1,20 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-
-import eslintPlugin from 'vite-plugin-eslint';
+const DEFAULT_PORT = 3001;
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  // vite: {
-  //   server: {
-  //     port: 3000,
-  //   },
-  //   plugins: [
-  //     eslintPlugin({
-  //       cache: true,
-  //       fix: true,
-  //       failOnError: false,
-  //     })
-  //   ]
-  // },
+  devServer: {
+    port: process.env.NUXT_PUBLIC_PORT as any || DEFAULT_PORT,
+  },
   typescript: {
     shim: false,
   },
@@ -35,6 +25,7 @@ export default defineNuxtConfig({
     apiSecret: '', // can be overridden by NUXT_API_SECRET environment variable
     public: {
       apiBase: '', // can be overridden by NUXT_PUBLIC_API_BASE environment variable
+      port: '' // can be overridden by NUXT_PUBLIC_API_BASE environment variable
     }
   },
 })
