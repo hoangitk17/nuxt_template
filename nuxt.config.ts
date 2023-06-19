@@ -2,6 +2,15 @@
 const DEFAULT_PORT = 3001;
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@use "@/assets/scss/global.scss" as *;',
+        },
+      },
+    },
+  },
   devServer: {
     port: process.env.NUXT_PUBLIC_PORT as any || DEFAULT_PORT,
   },

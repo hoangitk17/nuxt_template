@@ -5,6 +5,7 @@
     <div>
       {{ foo }}
     </div>
+    <h1>color red</h1>
   </div>
 </template>
 
@@ -21,3 +22,9 @@ const store = useLoadingStore()
 const config = useRuntimeConfig()
 console.log(store, config)
 </script>
+
+<style lang="scss" scoped>
+h1 {
+  color: $color-red;
+}
+</style>
