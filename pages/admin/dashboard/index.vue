@@ -8,13 +8,17 @@
     <h1>color red</h1>
   </div>
 </template>
-
-<script setup>
+<script setup lang="ts">
 import { useLoadingStore } from '@/store/loading'
-import cloneDeep from 'lodash.clonedeep';
+import cloneDeep from 'lodash.clonedeep'
 const foo = useFoo()
-const copy = cloneDeep(foo);
+const b = 5
+console.log(b)
+const copy = cloneDeep(foo)
 console.log(copy)
+useHead({
+  title: 'My App',
+})
 definePageMeta({
   layout: 'admin',
 })

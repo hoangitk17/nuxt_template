@@ -1,5 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-const DEFAULT_PORT = 3001;
+const DEFAULT_PORT = 3001
 export default defineNuxtConfig({
   devtools: { enabled: true },
   vite: {
@@ -12,21 +12,24 @@ export default defineNuxtConfig({
     },
   },
   devServer: {
-    port: process.env.NUXT_PUBLIC_PORT as any || DEFAULT_PORT,
+    port: (process.env.NUXT_PUBLIC_PORT as any) || DEFAULT_PORT,
   },
   typescript: {
     shim: false,
+    typeCheck: true,
   },
   modules: [
-
     // With options
-    ['@nuxtjs/eslint-module', {
-      cache: true,
-      fix: true,
-      failOnError: false,
-      include: ['./**/*.{js,jsx,ts,tsx,vue}']
-    }],
-    '@pinia/nuxt'
+    '@pinia/nuxt',
+    [
+      '@nuxtjs/eslint-module',
+      {
+        cache: true,
+        fix: true,
+        failOnError: false,
+        lintOnStart: false,
+      },
+    ],
   ],
 
   // https://nuxt.com/docs/guide/going-further/runtime-config
@@ -34,7 +37,7 @@ export default defineNuxtConfig({
     apiSecret: '', // can be overridden by NUXT_API_SECRET environment variable
     public: {
       apiBase: '', // can be overridden by NUXT_PUBLIC_API_BASE environment variable
-      port: '' // can be overridden by NUXT_PUBLIC_API_BASE environment variable
-    }
+      port: '', // can be overridden by NUXT_PUBLIC_API_BASE environment variable
+    },
   },
 })
